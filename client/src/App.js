@@ -1,27 +1,30 @@
 // React Imports 
 // =========================================================
-  import React, {lazy, Suspense } from 'react';
+  import React from 'react';
+  // import React, {lazy, Suspense } from 'react';
+
 // Components
 // =========================================================
-  import Loading from './Components/Loading'
+  // import Loading from './Components/Loading'
   import Footer from './Components/Footer'
+  import SocialWall from "./Pages/socialWall"
 // Stylesheets
 // =========================================================
   import './Assets/globalCss/layout.css'
   import './Assets/globalCss/typography.css'
 // Pages 
 // =========================================================
-  const SocialWall = lazy(() => import('./Pages/socialWall'));
+  // const SocialWall = lazy(() => import('./Pages/socialWall'));
 // Fallback prop to render while Social Wall is loading 
 // =========================================================
-  const renderLoader = () => <Loading/>;
+  // const renderLoader = () => <Loading/>;
 
   
 const  App = () => (
   <>
-    <Suspense fallback={renderLoader()}>
+    {/* <Suspense fallback={renderLoader()}> */}
       <SocialWall/>
-    </Suspense>
+    {/* </Suspense> */}
     <Footer/>
   </>
 )
