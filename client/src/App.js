@@ -5,7 +5,7 @@
 
 // Components
 // =========================================================
-  // import Loading from './Components/Loading'
+  import Loading from './Components/Loading'
   import Footer from './Components/Footer'
   // import SocialWall from "./Pages/socialWall"
 // Stylesheets
