@@ -18,60 +18,60 @@
 
 // Styling
 // =========================================================   
-const useStyles = makeStyles(theme => ({
-  root: {
-    maxWidth: 314,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  avatar: {
-    borderRadius: 8, 
-    backgroundColor: "transparent"
-  },
-}));
+  const useStyles = makeStyles(theme => ({
+    root: {
+      maxWidth: 314,
+    },
+    media: {
+      height: 0,
+      paddingTop: '56.25%', // 16:9
+    },
+    avatar: {
+      borderRadius: 8, 
+      backgroundColor: "transparent"
+    },
+  }));
 
 // Instagram Card Layout
 // =========================================================   
-export default function InstagramCard(props) {
-  const classes = useStyles();
+  export default function InstagramCard(props) {
+    const classes = useStyles();
 
-  return (
-    <Card className={classes.root}>
-      <CardHeader 
-        avatar={
-          <Avatar aria-label="manual" className={classes.avatar}>
-            <img alt="instagram" src="https://instagram-brand.com/wp-content/themes/ig-branding/assets/images/ig-logo-email.png" />
-          </Avatar>
-        }
-        title={`@${props.title}`}
-        subheader={props.date}
-      />
-      
-      <CardContent>
-        <img alt={props.altText} src={props.image}/>
+    return (
+      <Card className={classes.root}>
+        <CardHeader 
+          avatar={
+            <Avatar aria-label="manual" className={classes.avatar}>
+              <img alt="instagram" src="https://instagram-brand.com/wp-content/themes/ig-branding/assets/images/ig-logo-email.png" />
+            </Avatar>
+          }
+          title={`@${props.title}`}
+          subheader={props.date}
+        />
+        
+        <CardContent>
+          <img alt={props.altText} src={props.image}/>
 
-        <Typography variant="body2" color="textSecondary" component="p">
-          {props.text}
-        </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {props.text}
+          </Typography>
 
-        <Typography variant="body2" color="textSecondary" component="p">
-          {props.link}
-        </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {props.link}
+          </Typography>
 
-      </CardContent>
+        </CardContent>
 
-      {/* // TODO:////////////////// -> Card Actions  */}
-      {/* <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-      </CardActions> */}
-      
-    </Card>
-  );
-}
+        {/* // TODO:////////////////// -> Card Actions  */}
+        {/* <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+        </CardActions> */}
+        
+      </Card>
+    );
+  }

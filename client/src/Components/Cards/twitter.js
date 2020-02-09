@@ -19,57 +19,55 @@
 
 // Styling
 // =========================================================   
-const useStyles = makeStyles(theme => ({
-  root: {
-    maxWidth: 314,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  avatar: {
-    backgroundColor: "transparent"
-  },
-}));
+  const useStyles = makeStyles(theme => ({
+    root: {
+      maxWidth: 314,
+    },
+    media: {
+      height: 0,
+      paddingTop: '56.25%', // 16:9
+    },
+    avatar: {
+      backgroundColor: "transparent"
+    },
+  }));
 
 // Twitter Card Layout
 // =========================================================   
-export default function TwitterCard(props) {
-  const classes = useStyles();
+  export default function TwitterCard(props) {
+    const classes = useStyles();
 
-  return (
-    <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="manual" className={classes.avatar}>
-            <img alt="twitter" src="https://www.vectorsland.com/imgd/l62697-new-twitter-logo-49466.png" />            
-          </Avatar>
-        }
-        title={`@${props.title}`}
-        subheader={props.date}
-      />
-      <CardContent>
+    return (
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="manual" className={classes.avatar}>
+              <img alt="twitter" src="https://www.vectorsland.com/imgd/l62697-new-twitter-logo-49466.png" />            
+            </Avatar>
+          }
+          title={`@${props.title}`}
+          subheader={props.date}
+        />
+        <CardContent>
 
-        <Typography variant="body2" color="textSecondary" component="p">
-          {props.tweet}
-        </Typography>
+            {props.tweet}
 
-        <Typography variant="body2" color="textSecondary" component="p">
-          {props.link}
-        </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {props.link}
+          </Typography>
 
-      </CardContent>
+        </CardContent>
 
-      {/* // TODO:////////////////// -> Card Actions  */}
-      {/* <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-      </CardActions> */}
-      
-    </Card>
-  );
-}
+        {/* // TODO:////////////////// -> Card Actions  */}
+        {/* <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+        </CardActions> */}
+        
+      </Card>
+    );
+  }

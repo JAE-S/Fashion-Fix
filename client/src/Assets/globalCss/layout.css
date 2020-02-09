@@ -186,3 +186,8 @@
  .post-footer:hover, .post-footer:active, .post-footer:focus {
    opacity: .75;
  }
+
+ .hide {
+    display: none;
+  }
+  

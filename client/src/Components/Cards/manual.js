@@ -20,60 +20,60 @@
 
 // Styling
 // =========================================================   
-const useStyles = makeStyles(theme => ({
-  root: {
-    maxWidth: 314,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  avatar: {
-    backgroundColor: red[500],
-    borderRadius: 8, 
-  },
-}));
+  const useStyles = makeStyles(theme => ({
+    root: {
+      maxWidth: 314,
+    },
+    media: {
+      height: 0,
+      paddingTop: '56.25%', // 16:9
+    },
+    avatar: {
+      backgroundColor: red[500],
+      borderRadius: 8, 
+    },
+  }));
 
 // Manual Card layout 
 // =========================================================   
-export default function ManualCard(props) {
-  const classes = useStyles();
+  export default function ManualCard(props) {
+    const classes = useStyles();
 
-  return (
-    <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="manual" className={classes.avatar}>
-            AFF
-          </Avatar>
-        }
-        title={`${props.title}...`}
-        subheader={props.date}
-      />
-      <CardMedia
-        className={classes.media}
-        image={props.image}
-        title={props.altText}
-      />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-         {props.text}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-         {props.link}
-        </Typography>
-      </CardContent>
+    return (
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="manual" className={classes.avatar}>
+              AFF
+            </Avatar>
+          }
+          title={`${props.title}...`}
+          subheader={props.date}
+        />
+        <CardMedia
+          className={classes.media}
+          image={props.image}
+          title={props.altText}
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+          {props.text}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          {props.link}
+          </Typography>
+        </CardContent>
 
-      {/* // TODO:////////////////// -> Card Actions  */}
-      {/* <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-      </CardActions> */}
-      
-    </Card>
-  );
-}
+        {/* // TODO:////////////////// -> Card Actions  */}
+        {/* <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+        </CardActions> */}
+        
+      </Card>
+    );
+  }
