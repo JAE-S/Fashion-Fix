@@ -2,12 +2,10 @@
 // =========================================================
   // import React from 'react';
   import React, {lazy, Suspense } from 'react';
-
 // Components
 // =========================================================
   import Loading from './Components/Loading'
-  import Footer from './Components/Footer'
-  // import SocialWall from "./Pages/socialWall"
+  import { Footer } from './Components/Footer'
 // Stylesheets
 // =========================================================
   import './Assets/globalCss/layout.css'
@@ -20,13 +18,13 @@
   const renderLoader = () => <Loading/>;
 
   
-const  App = () => (
-  <>
-    <Suspense fallback={renderLoader()}>
-      <SocialWall/>
-    </Suspense>
-    <Footer/>
-  </>
-)
+  const  App = () => (
+    <>
+      <Suspense fallback={renderLoader()}>
+        <SocialWall/>
+      </Suspense>
+      <Footer/>
+    </>
+  )
 
-export default App;
+  export default App;
