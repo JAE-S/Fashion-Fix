@@ -46,7 +46,6 @@
             </Avatar>
           }
           title={`@${props.title}`}
-          subheader={props.date}
         />
         <CardContent>
 
@@ -54,6 +53,9 @@
 
           <Typography variant="body2" color="textSecondary" component="p">
             {props.link}
+          </Typography>
+          <Typography variant="caption" color="textSecondary" component="p">
+            {props.date}
           </Typography>
 
         </CardContent>
