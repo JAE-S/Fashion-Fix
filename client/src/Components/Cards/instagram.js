@@ -60,7 +60,7 @@
           </Typography>
 
           <Typography variant="caption" color="textSecondary" component="p">
-            {props.date}
+            Posted: {props.date}
           </Typography>
 
         </CardContent>

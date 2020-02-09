@@ -124,7 +124,7 @@
                                                 <Manual 
                                                     className="post-content"
                                                     title={item.item_name}
-                                                    date={`Posted: ${<Moment fromNow date={item.item_published}/>}`}
+                                                    date={<Moment fromNow date={item.item_published}/>}
                                                     image={"https://mir-s3-cdn-cf.behance.net/project_modules/fs/1833e98872085.560c4d907c29c.jpg"}
                                                     altText={item.service_name}
                                                     text={item.item_data.text}
@@ -139,7 +139,7 @@
                                                 <Twitter
                                                     className="post-content twitter"
                                                     title={item.item_data.user.username}
-                                                    date={`Posted: ${<Moment fromNow date={item.item_published}/>}`}
+                                                    date={<Moment fromNow date={item.item_published}/>}
                                                     tweet={<Linkify tagName="p">{item.item_data.tweet}</Linkify>}
                                                 />
                                             </div>
@@ -151,7 +151,7 @@
                                                 <Instagram
                                                     className="post-content instagram"
                                                     title={item.item_data.user.username}
-                                                    date={`Posted: ${<Moment fromNow date={item.item_published}/>}`}
+                                                    date={<Moment fromNow date={item.item_published}/>}
                                                     image={"https://www.mixedgems.co.uk/resize/310x310/90/2014/09/Screen-Shot-2014-09-28-at-13.23.21.png"}
                                                     altText={item.service_name}
                                                     text={item.item_data.caption}
