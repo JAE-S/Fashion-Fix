@@ -5,6 +5,8 @@
 // =========================================================   
    import Moment from 'react-moment';
    import Linkify from 'linkifyjs/react';
+   import Fab from '@material-ui/core/Fab';
+   import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // Custom Components
 // =========================================================   
    import Carousel from "../Components/Carousel";
@@ -46,7 +48,7 @@
             API.getPosts()
             .then(res => {
                 let results = res.data.items
-                console.log(res.data.items)
+                // console.log(res.data.items)
 
                 const itemsArray = results.map((obj) => {
                     const { service_name, 
@@ -89,6 +91,17 @@
             }
         } 
 
+        // Load More data
+        // =========================================================
+        loadMore = () => {
+            let loadData = this.state.data 
+            let newArray = loadData.concat(loadData)
+
+           this.setState({
+                data: newArray,
+            })
+        }
+
         render() {
 
             return (
@@ -111,7 +124,7 @@
                                                 <Manual 
                                                     className="post-content"
                                                     title={item.item_name}
-                                                    date={<div>Posted: <Moment fromNow date={item.item_published}/></div>}
+                                                    date={`Posted: ${<Moment fromNow date={item.item_published}/>}`}
                                                     image={"https://mir-s3-cdn-cf.behance.net/project_modules/fs/1833e98872085.560c4d907c29c.jpg"}
                                                     altText={item.service_name}
                                                     text={item.item_data.text}
@@ -126,7 +139,7 @@
                                                 <Twitter
                                                     className="post-content twitter"
                                                     title={item.item_data.user.username}
-                                                    date={<div>Posted: <Moment fromNow date={item.item_published}/></div>}
+                                                    date={`Posted: ${<Moment fromNow date={item.item_published}/>}`}
                                                     tweet={<Linkify tagName="p">{item.item_data.tweet}</Linkify>}
                                                 />
                                             </div>
@@ -138,7 +151,7 @@
                                                 <Instagram
                                                     className="post-content instagram"
                                                     title={item.item_data.user.username}
-                                                    date={<div>Posted: <Moment fromNow date={item.item_published}/></div>}
+                                                    date={`Posted: ${<Moment fromNow date={item.item_published}/>}`}
                                                     image={"https://www.mixedgems.co.uk/resize/310x310/90/2014/09/Screen-Shot-2014-09-28-at-13.23.21.png"}
                                                     altText={item.service_name}
                                                     text={item.item_data.caption}
@@ -151,6 +164,12 @@
 
                                 ))}
                             </div>
+                        </div>
+                        <div style={{display: "table", margin: "0 auto"}}>
+                            <Fab variant="extended" style={{marginBottom: "40px"}} onClick={this.loadMore}>
+                                <ExpandMoreIcon  />
+                                Show More 
+                            </Fab>
                         </div>
                 </>
             )
