@@ -126,7 +126,7 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
 
             return (
                 <>
-                <header style={{position: "fixed", zIndex: "2", height: "calc(100vh - 624px)"}}> 
+                <header style={{position: "fixed", zIndex: "2", height: "calc(100vh - 646px)"}}> 
                     <Carousel/>
                     <AppBar
                         viewAll={<div id="viewAll" onClick={this.handleClick}>View All</div>}
