@@ -126,7 +126,7 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
 
             return (
                 <>
-                
+                <header style={{position: "fixed", zIndex: "2", height: "calc(100vh - 624px)"}}> 
                     <Carousel/>
                     <AppBar
                         viewAll={<div id="viewAll" onClick={this.handleClick}>View All</div>}
@@ -134,59 +134,73 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
                         twitter={<div id="twitter" onClick={this.handleClick}>Twitter</div>}
                         instagram={<div id="instagram" onClick={this.handleClick}>Instagram</div>}
                     />    
+                </header> 
                         <div className="post-wrapper">
                             <div className="post">
                                 {this.state.data.map((item, i) => (
-                                    <LazyLoad 
-                                        key={i} 
-                                        placeholder={`Loading...`}
-                                        onContentVisible={() => console.log('look ma I have been lazyloaded!')}
-                                    >
                                     <div className="post-item" key={i}>
                                     {/* Manual Posts */}
                                         {item.service_name === "Manual" ? 
-                                            <div className={this.state.showManual ? "show" : "hide"}>
-                                                <Manual 
-                                                    className="post-content"
-                                                    title={item.item_name}
-                                                    date={<Moment fromNow date={item.item_published}/>}
-                                                    image={"https://mir-s3-cdn-cf.behance.net/project_modules/fs/1833e98872085.560c4d907c29c.jpg"}
-                                                    altText={item.service_name}
-                                                    text={item.item_data.text}
-                                                    link={<a href={item.item_data.link}>{item.item_data.link_text}</a>}
-                                                />
-                                            </div>
-                                            :  ( <div style={{display: "none"}}/> )
+                                            (<LazyLoad 
+                                                key={item.item_id} 
+                                                placeholder={`Loading...`}
+                                                onContentVisible={() => console.log('look ma I have been lazyloaded!')}
+                                            >
+                                                <div className={this.state.showManual ? "show" : "hide"}>
+                                                    <Manual 
+                                                        className="post-content"
+                                                        title={item.item_name}
+                                                        date={<Moment fromNow date={item.item_published}/>}
+                                                        image={"https://mir-s3-cdn-cf.behance.net/project_modules/fs/1833e98872085.560c4d907c29c.jpg"}
+                                                        altText={item.service_name}
+                                                        text={item.item_data.text}
+                                                        link={<a href={item.item_data.link}>{item.item_data.link_text}</a>}
+                                                    />
+                                                </div>
+                                            </LazyLoad>)
+                                            :  (null)
                                         }
                                     {/* Twitter Posts */}
                                         {item.service_name === "Twitter" ? 
-                                            <div className={this.state.showTwitter ? "show" : "hide"}>
-                                                <Twitter
-                                                    className="post-content twitter"
-                                                    title={item.item_data.user.username}
-                                                    date={<Moment fromNow date={item.item_published}/>}
-                                                    tweet={<Linkify  options={linkifyOptions} tagName="p">{item.item_data.tweet}</Linkify>}
-                                                />
-                                            </div>
-                                            :  ( <div style={{display: "none"}}/> )
+                                            (<LazyLoad 
+                                                key={item.item_id} 
+                                                placeholder={`Loading...`}
+                                                onContentVisible={() => console.log('look ma I have been lazyloaded!')}
+                                            >
+                                                <div className={this.state.showTwitter ? "show" : "hide"}>
+                                                    <Twitter
+                                                        className="post-content twitter"
+                                                        title={item.item_data.user.username}
+                                                        date={<Moment fromNow date={item.item_published}/>}
+                                                        tweet={<Linkify  options={linkifyOptions} tagName="p">{item.item_data.tweet}</Linkify>}
+                                                    />
+                                                </div>
+                                            </LazyLoad>)
+                                            :  (null)
                                         }
                                     {/* Instagram Posts */}
                                         {item.service_name === "Instagram" ? 
-                                            <div className={this.state.showInstagram ? "show" : "hide"}>
-                                                <Instagram
-                                                    className="post-content instagram"
-                                                    title={item.item_data.user.username}
-                                                    date={<Moment fromNow date={item.item_published}/>}
-                                                    image={"https://www.mixedgems.co.uk/resize/310x310/90/2014/09/Screen-Shot-2014-09-28-at-13.23.21.png"}
-                                                    altText={item.service_name}
-                                                    text={<Linkify  options={linkifyOptions} tagName="p">{item.item_data.caption}</Linkify>}
-                                                    link={<a href={item.item_data.link} target="_blank" rel="noopener noreferrer">View on Instagram</a>}
-                                                />
-                                            </div>
-                                            :  ( <div style={{display: "none"}}/> )
+                                            (<LazyLoad 
+                                                key={item.item_id} 
+                                                placeholder={`Loading...`}
+                                                onContentVisible={() => console.log('look ma I have been lazyloaded!')}
+                                            >
+                                                <div className={this.state.showInstagram ? "show" : "hide"}>
+                                                    <Instagram
+                                                        className="post-content instagram"
+                                                        title={item.item_data.user.username}
+                                                        date={<Moment fromNow date={item.item_published}/>}
+                                                        image={"https://www.mixedgems.co.uk/resize/310x310/90/2014/09/Screen-Shot-2014-09-28-at-13.23.21.png"}
+                                                        altText={item.service_name}
+                                                        text={<Linkify  options={linkifyOptions} tagName="p">{item.item_data.caption}</Linkify>}
+                                                        link={<a href={item.item_data.link} target="_blank" rel="noopener noreferrer">View on Instagram</a>}
+                                                    />
+                                                </div>
+                                            </LazyLoad>)
+                                            :  (null)
                                         }
                                     </div>
-                                    </LazyLoad>
+                                    // </LazyLoad>
                                 ))}
                             </div>
                         </div>
