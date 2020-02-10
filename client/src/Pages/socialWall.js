@@ -76,8 +76,10 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
                     };
                 })
 
+                const sortedArray = itemsArray.sort((a, b) => a.item_published - b.item_published)
+
                 this.setState({
-                    data: itemsArray,
+                    data: sortedArray,
                 })
             })
         }
@@ -141,12 +143,12 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
                                     <div className="post-item" key={i}>
                                     {/* Manual Posts */}
                                         {item.service_name === "Manual" ? 
-                                            (<LazyLoad 
-                                                key={item.item_id} 
-                                                placeholder={`Loading...`}
-                                                onContentVisible={() => console.log('look ma I have been lazyloaded!')}
-                                            >
-                                                <div className={this.state.showManual ? "show" : "hide"}>
+                                            (<div className={this.state.showManual ? "show" : "hide"}>
+                                                <LazyLoad 
+                                                    key={item.item_id} 
+                                                    placeholder={`Loading...`}
+                                                    onContentVisible={() => console.log('look ma I have been lazyloaded!')}
+                                                >
                                                     <Manual 
                                                         className="post-content"
                                                         title={item.item_name}
@@ -156,36 +158,36 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
                                                         text={item.item_data.text}
                                                         link={<a href={item.item_data.link}>{item.item_data.link_text}</a>}
                                                     />
-                                                </div>
-                                            </LazyLoad>)
+                                                 </LazyLoad>
+                                            </div>)
                                             :  (null)
                                         }
                                     {/* Twitter Posts */}
                                         {item.service_name === "Twitter" ? 
-                                            (<LazyLoad 
-                                                key={item.item_id} 
-                                                placeholder={`Loading...`}
-                                                onContentVisible={() => console.log('look ma I have been lazyloaded!')}
-                                            >
-                                                <div className={this.state.showTwitter ? "show" : "hide"}>
+                                            (<div className={this.state.showTwitter ? "show" : "hide"}>
+                                                <LazyLoad 
+                                                    key={item.item_id} 
+                                                    placeholder={`Loading...`}
+                                                    onContentVisible={() => console.log('look ma I have been lazyloaded!')}
+                                                >
                                                     <Twitter
                                                         className="post-content twitter"
                                                         title={item.item_data.user.username}
                                                         date={<Moment fromNow date={item.item_published}/>}
                                                         tweet={<Linkify  options={linkifyOptions} tagName="p">{item.item_data.tweet}</Linkify>}
                                                     />
-                                                </div>
-                                            </LazyLoad>)
+                                                </LazyLoad>
+                                            </div>)
                                             :  (null)
                                         }
                                     {/* Instagram Posts */}
                                         {item.service_name === "Instagram" ? 
-                                            (<LazyLoad 
-                                                key={item.item_id} 
-                                                placeholder={`Loading...`}
-                                                onContentVisible={() => console.log('look ma I have been lazyloaded!')}
-                                            >
-                                                <div className={this.state.showInstagram ? "show" : "hide"}>
+                                            (<div className={this.state.showInstagram ? "show" : "hide"}>
+                                                <LazyLoad 
+                                                    key={item.item_id} 
+                                                    placeholder={`Loading...`}
+                                                    onContentVisible={() => console.log('look ma I have been lazyloaded!')}
+                                                 >
                                                     <Instagram
                                                         className="post-content instagram"
                                                         title={item.item_data.user.username}
@@ -195,8 +197,8 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
                                                         text={<Linkify  options={linkifyOptions} tagName="p">{item.item_data.caption}</Linkify>}
                                                         link={<a href={item.item_data.link} target="_blank" rel="noopener noreferrer">View on Instagram</a>}
                                                     />
-                                                </div>
-                                            </LazyLoad>)
+                                                </LazyLoad>
+                                            </div>)
                                             :  (null)
                                         }
                                     </div>
