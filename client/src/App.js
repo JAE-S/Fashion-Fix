@@ -8,6 +8,7 @@
   import { Footer } from './Components/Footer'
 // Stylesheets
 // =========================================================
+  import './Assets/globalCss/reset.css'
   import './Assets/globalCss/layout.css'
   import './Assets/globalCss/typography.css'
 // Pages 

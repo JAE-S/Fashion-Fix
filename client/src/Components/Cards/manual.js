@@ -1,6 +1,9 @@
 // React Imports 
 // =========================================================   
     import React from 'react';
+// LazyLoad imports
+// =========================================================   
+    import LazyLoad from 'react-lazy-load';
 // Material UI Components
 // =========================================================   
     import { makeStyles } from '@material-ui/core/styles';
@@ -40,43 +43,50 @@
     const classes = useStyles();
 
     return (
-      <Card className={classes.root}>
-        <CardHeader
-          avatar={
-            <Avatar aria-label="manual" className={classes.avatar}>
-              AFF
-            </Avatar>
-          }
-          title={`${props.title}...`}
-        />
-        <CardMedia
-          className={classes.media}
-          image={props.image}
-          title={props.altText}
-        />
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-          {props.text}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          {props.link}
-          </Typography>
+      <LazyLoad 
+        // height={200}
+        offset={100}
+        placeholder={`Loading...`}
+        onContentVisible={() => console.log('look ma I have been lazyloaded!')}
+      >
+        <Card className={classes.root}>
+          <CardHeader
+            avatar={
+              <Avatar aria-label="manual" className={classes.avatar}>
+                AFF
+              </Avatar>
+            }
+            title={`${props.title}...`}
+          />
+          <CardMedia
+            className={classes.media}
+            image={props.image}
+            title={props.altText}
+          />
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+            {props.text}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+            {props.link}
+            </Typography>
 
-          <Typography variant="caption" color="textSecondary" component="p">
-            Posted: {props.date}
-          </Typography>
-        </CardContent>
+            <Typography variant="caption" color="textSecondary" component="p">
+              Posted: {props.date}
+            </Typography>
+          </CardContent>
 
-        {/* // TODO:////////////////// -> Card Actions  */}
-        {/* <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
-        </CardActions> */}
-        
-      </Card>
+          {/* // TODO:////////////////// -> Card Actions  */}
+          {/* <CardActions disableSpacing>
+            <IconButton aria-label="add to favorites">
+              <FavoriteIcon />
+            </IconButton>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+          </CardActions> */}
+          
+        </Card>
+      </LazyLoad>
     );
   }

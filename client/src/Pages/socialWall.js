@@ -4,8 +4,8 @@
 // NPM Imports 
 // =========================================================   
    import Moment from 'react-moment';
+   import Masonry from 'react-masonry-css'
    import Linkify from 'linkifyjs/react';
-   import LazyLoad from 'react-lazy-load';
    import hashtag from 'linkifyjs/plugins/hashtag';
    import * as linkify from 'linkifyjs';
 // Material UI Components
@@ -128,95 +128,89 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
                     }, 
                     
                 }
+                const breakpointColumnsObj = {
+                    default: 4,
+                    1100: 3,
+                    700: 2,
+                    500: 1
+                  };
 
             return (
                 <>
-                <header style={{position: "fixed", zIndex: "2", height: "calc(100vh - 646px)"}}> 
-                    <Carousel/>
-                    <AppBar
-                        viewAll={<div id="viewAll" onClick={this.handleClick}>View All</div>}
-                        manual={<div id="manual" onClick={this.handleClick}>Manual</div>}
-                        twitter={<div id="twitter" onClick={this.handleClick}>Twitter</div>}
-                        instagram={<div id="instagram" onClick={this.handleClick}>Instagram</div>}
-                    />    
-                </header> 
-                        <div className="post-wrapper">
-                            <div className="post">
-                                {this.state.data.map((item, i) => (
-                                    <div className="post-item" key={i}>
-                                    {/* Manual Posts */}
-                                        {item.service_name === "Manual" ? 
-                                            (<div className={this.state.showManual ? "show" : "hide"}>
-                                                <LazyLoad 
-                                                    key={item.item_id} 
-                                                    placeholder={`Loading...`}
-                                                    onContentVisible={() => console.log('look ma I have been lazyloaded!')}
-                                                >
-                                                    <Manual 
-                                                        className="post-content"
-                                                        title={item.item_name}
-                                                        date={<Moment fromNow date={item.date}/>}
-                                                        // date={item.date}
-
-                                                        image={"https://mir-s3-cdn-cf.behance.net/project_modules/fs/1833e98872085.560c4d907c29c.jpg"}
-                                                        altText={item.service_name}
-                                                        text={item.item_data.text}
-                                                        link={<a href={item.item_data.link}>{item.item_data.link_text}</a>}
-                                                    />
-                                                 </LazyLoad>
-                                            </div>)
-                                            :  (null)
+                    <header style={{position: "fixed", zIndex: "2", height: "calc(100vh - 646px)"}}> 
+                        <Carousel/>
+                        <AppBar
+                            viewAll={<div id="viewAll" onClick={this.handleClick}>View All</div>}
+                            manual={<div id="manual" onClick={this.handleClick}>Manual</div>}
+                            twitter={<div id="twitter" onClick={this.handleClick}>Twitter</div>}
+                            instagram={<div id="instagram" onClick={this.handleClick}>Instagram</div>}
+                        />    
+                    </header> 
+                    <main className="post-wrapper">
+                        <Masonry
+                            breakpointCols={breakpointColumnsObj}
+                            className="my-masonry-grid"
+                            columnClassName="my-masonry-grid_column"
+                        >
+                            {this.state.data.map((item, i) => {                                   
+                                return (
+                                    <div key={i}>
+                                        {/* Manual Posts */}
+                                        {item.service_name === "Manual" ? (
+                                            <div className={this.state.showManual ? "show" : "hide"}>
+                                                <Manual 
+                                                    className="post-content"
+                                                    title={item.item_name}
+                                                    date={<Moment fromNow date={item.date}/>}
+                                                    image={"https://mir-s3-cdn-cf.behance.net/project_modules/fs/1833e98872085.560c4d907c29c.jpg"}
+                                                    altText={item.service_name}
+                                                    text={item.item_data.text}
+                                                    link={<a className="link-style" href={item.item_data.link}>{item.item_data.link_text}</a>}
+                                                />
+                                              
+                                            </div>
+                                            ) : (null) 
                                         }
-                                    {/* Twitter Posts */}
-                                        {item.service_name === "Twitter" ? 
-                                            (<div className={this.state.showTwitter ? "show" : "hide"}>
-                                                <LazyLoad 
-                                                    key={item.item_id} 
-                                                    placeholder={`Loading...`}
-                                                    onContentVisible={() => console.log('look ma I have been lazyloaded!')}
-                                                >
-                                                    <Twitter
-                                                        className="post-content twitter"
-                                                        title={item.item_data.user.username}
-                                                        date={<Moment fromNow date={item.date}/>}
-                                                        tweet={<Linkify  options={linkifyOptions} tagName="p">{item.item_data.tweet}</Linkify>}
-                                                    />
-                                                </LazyLoad>
-                                            </div>)
-                                            :  (null)
+                                        {/* Twitter Posts */}
+                                        {item.service_name === "Twitter" ? (
+                                            <div className={this.state.showTwitter ? "show" : "hide"}>
+                                                <Twitter
+                                                    className="post-content twitter"
+                                                    title={item.item_data.user.username}
+                                                    date={<Moment fromNow date={item.date}/>}
+                                                    tweet={<Linkify  options={linkifyOptions} tagName="p">{item.item_data.tweet}</Linkify>}
+                                                />
+                                            </div>                                                
+                                            ) :  (null) 
                                         }
-                                    {/* Instagram Posts */}
-                                        {item.service_name === "Instagram" ? 
-                                            (<div className={this.state.showInstagram ? "show" : "hide"}>
-                                                <LazyLoad 
-                                                    key={item.item_id} 
-                                                    placeholder={`Loading...`}
-                                                    onContentVisible={() => console.log('look ma I have been lazyloaded!')}
-                                                 >
-                                                    <Instagram
-                                                        className="post-content instagram"
-                                                        title={item.item_data.user.username}
-                                                        date={<Moment fromNow date={item.date}/>}
-                                                        image={"https://www.mixedgems.co.uk/resize/310x310/90/2014/09/Screen-Shot-2014-09-28-at-13.23.21.png"}
-                                                        altText={item.service_name}
-                                                        text={<Linkify  options={linkifyOptions} tagName="p">{item.item_data.caption}</Linkify>}
-                                                        link={<a href={item.item_data.link} target="_blank" rel="noopener noreferrer">View on Instagram</a>}
-                                                    />
-                                                </LazyLoad>
-                                            </div>)
-                                            :  (null)
+                                        {/* Instagram Posts */}
+                                        {item.service_name === "Instagram" ? (
+                                            <div className={this.state.showInstagram ? "show" : "hide"}>
+                                                <Instagram
+                                                    className="post-content instagram"
+                                                    title={item.item_data.user.username}
+                                                    date={<Moment fromNow date={item.date}/>}
+                                                    image={"https://www.mixedgems.co.uk/resize/310x310/90/2014/09/Screen-Shot-2014-09-28-at-13.23.21.png"}
+                                                    altText={item.service_name}
+                                                    text={<Linkify  options={linkifyOptions} tagName="p">{item.item_data.caption}</Linkify>}
+                                                    link={<a className="link-style" href={item.item_data.link} target="_blank" rel="noopener noreferrer">View on Instagram</a>}
+                                                />
+                                            </div>
+                                            ) :  (null) 
                                         }
+                                      
                                     </div>
-                                    // </LazyLoad>
-                                ))}
-                            </div>
-                        </div>
+                                )    
+                            })}
+                        </Masonry>
+                       
                         <div style={{display: "table", margin: "0 auto"}}>
                             <Fab variant="extended" style={{marginBottom: "40px"}} onClick={this.loadMore}>
                                 <ExpandMoreIcon  />
                                 Show More 
                             </Fab>
                         </div>
+                    </main>
                 </>
             )
         }

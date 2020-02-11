@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.MuiCardHeader-title {
+  color: #DC3166;
+  font-weight: bold;
+  font-size: 1.2rem!important; 
+}
+
+.MuiCardContent-root p, .linkified, .link-style {
+  font-size: 0.875rem!important;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif!important;
+  font-weight: 400!important;
+  line-height: 1.43!important;
+  letter-spacing: 0.01071em!important;
+  text-decoration: none!important;
+}
+.MuiCardContent-root p {
+  padding-bottom: 2px;
+  color: rgba(0, 0, 0, 0.54)!important;
+}
+.linkified, .link-style {
+  color: #DC3166;
+
+}
+
+.MuiTypography-caption {
+  margin-top: 10px!important; 
+}
+
+.link-style:hover {  
+  text-decoration: underline!important;
+  padding-bottom: 2px!important;
+}

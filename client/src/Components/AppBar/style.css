@@ -1,0 +1,13 @@
+#TabNavs {
+    border-bottom: #57585D;
+}
+
+.MuiTab-textColorInherit.Mui-selected {
+    color: #DC3166; 
+}
+    
+.PrivateTabIndicator-colorSecondary-330, .PrivateTabIndicator-root-328 {
+    background-color: #f7f7f7!important;
+    height: 4px!important;
+    margin-top: 8px!important;
+}
