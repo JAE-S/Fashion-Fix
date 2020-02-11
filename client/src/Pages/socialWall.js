@@ -58,6 +58,7 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
                 // console.log(res.data.items)
 
                 const itemsArray = results.map((obj) => {
+                    
                     const { service_name, 
                             item_data, 
                             item_published, 
@@ -66,17 +67,18 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
                     } = obj; 
                     const image_url = item_data.image_url ? item_data.image_url : 'unavailable';
                     console.log(service_name)
-                    
+                    console.log(Date.parse(item_published))
+                    let date = Date.parse(item_published)
                     return {
                         service_name, 
                         item_data, 
-                        item_published,
+                        date,
                         image_url,
                         item_name
                     };
                 })
-
-                const sortedArray = itemsArray.sort((a, b) => a.item_published - b.item_published)
+                
+                const sortedArray = itemsArray.sort((a, b) => a.date - b.date)
 
                 this.setState({
                     data: sortedArray,
@@ -107,8 +109,9 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
             let loadData = this.state.data 
             let newArray = loadData.concat(loadData)
 
+            const updatedArray = newArray.sort((a, b) => a.date - b.date)
            this.setState({
-                data: newArray,
+                data: updatedArray,
             })
         }
 
@@ -152,7 +155,9 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
                                                     <Manual 
                                                         className="post-content"
                                                         title={item.item_name}
-                                                        date={<Moment fromNow date={item.item_published}/>}
+                                                        date={<Moment fromNow date={item.date}/>}
+                                                        // date={item.date}
+
                                                         image={"https://mir-s3-cdn-cf.behance.net/project_modules/fs/1833e98872085.560c4d907c29c.jpg"}
                                                         altText={item.service_name}
                                                         text={item.item_data.text}
@@ -173,7 +178,7 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
                                                     <Twitter
                                                         className="post-content twitter"
                                                         title={item.item_data.user.username}
-                                                        date={<Moment fromNow date={item.item_published}/>}
+                                                        date={<Moment fromNow date={item.date}/>}
                                                         tweet={<Linkify  options={linkifyOptions} tagName="p">{item.item_data.tweet}</Linkify>}
                                                     />
                                                 </LazyLoad>
@@ -191,7 +196,7 @@ import mention from 'linkifyjs/lib/linkify/plugins/mention';
                                                     <Instagram
                                                         className="post-content instagram"
                                                         title={item.item_data.user.username}
-                                                        date={<Moment fromNow date={item.item_published}/>}
+                                                        date={<Moment fromNow date={item.date}/>}
                                                         image={"https://www.mixedgems.co.uk/resize/310x310/90/2014/09/Screen-Shot-2014-09-28-at-13.23.21.png"}
                                                         altText={item.service_name}
                                                         text={<Linkify  options={linkifyOptions} tagName="p">{item.item_data.caption}</Linkify>}
