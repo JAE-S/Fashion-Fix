@@ -11,3 +11,17 @@
     height: 4px!important;
     margin-top: 8px!important;
 }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 8; 
+  }
+  

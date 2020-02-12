@@ -11,7 +11,7 @@
    import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // Custom Components
 // =========================================================   
-   import Carousel from "../Components/Carousel";
+//    import Carousel from "../Components/Carousel";
    import Manual from "../Components/Cards/manual";
    import Twitter from "../Components/Cards/twitter";
    import Instagram from '../Components/Cards/instagram';
@@ -104,7 +104,6 @@
             }
         } 
 
-        
         // Load More data
         // =========================================================
         loadMore = () => {
@@ -133,21 +132,21 @@
                 const breakpointColumnsObj = {
                     default: 4,
                     1100: 3,
-                    700: 2,
-                    500: 1
+                    863: 2,
+                    790: 1
                   };
 
             return (
                 <>
-                    <header style={{position: "fixed", zIndex: "2", height: "calc(100vh - 646px)"}}> 
-                        <Carousel/>
+                    {/* <header style={{position: "fixed", zIndex: "2", height: "calc(100vh - 646px)"}}>  */}
+                        {/* <Carousel/> */}
                         <AppBar
                             viewAll={<div id="viewAll" onClick={this.handleClick}>View All</div>}
                             manual={<div id="manual" onClick={this.handleClick}>Manual</div>}
                             twitter={<div id="twitter" onClick={this.handleClick}>Twitter</div>}
                             instagram={<div id="instagram" onClick={this.handleClick}>Instagram</div>}
                         />    
-                    </header> 
+                    {/* </header>  */}
                     <main className="post-wrapper">
                         <Masonry
                             breakpointCols={breakpointColumnsObj}

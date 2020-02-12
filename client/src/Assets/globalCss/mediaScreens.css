@@ -6,9 +6,8 @@
     font-size: 10px!important; 
   }
 }
-/* @media only screen and (max-width: 1023px) and (min-width: 768px) {  
-   
+@media only screen and (max-width: 860px){   
+  .makeStyles-root-131, .makeStyles-root-134, .makeStyles-root-137 {
+    max-width: 100%!important;
+  }
 }
-@media only screen and (min-width: 1024px) {
- 
-} */

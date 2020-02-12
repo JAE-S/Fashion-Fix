@@ -1,12 +1,13 @@
 // Reacts Imports
 // =========================================================   
-  import React from 'react';
+  import React, {useEffect, useState } from 'react';
 // Material UI Components
 // =========================================================   
   import { makeStyles, withStyles } from '@material-ui/core/styles';
   import Paper from '@material-ui/core/Paper';
   import Tabs from '@material-ui/core/Tabs';
   import Tab from '@material-ui/core/Tab';
+  import Carousel from '../Carousel';
 // Styling
 // =========================================================   
   import "./style.css";
@@ -44,19 +45,39 @@
       setValue(newValue);
     };
 
-    return (
-      <Paper id="TabNavs" className={classes.root}>
-        <StyledTabs
-          value={value}
-          onChange={handleChange}
-          centered
-        >
-          <Tab label={props.viewAll} className={classes.navTitle}/>
-          <Tab label={props.manual} className={classes.navTitle}/>
-          <Tab label= {props.twitter} className={classes.navTitle}/>
-          <Tab label= {props.instagram} className={classes.navTitle}/>
+    useEffect(() => {
+      const header = document.getElementById("myHeader");
+      const scrollCallBack = window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 260) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+      });
+      return () => {
+        window.removeEventListener("scroll", scrollCallBack);
+      };
+    }, []);
 
-        </StyledTabs>
-      </Paper>
+    return (
+      <header>
+        <Carousel/>
+        <nav id="myHeader" className="header">
+          <Paper id="TabNavs" className={classes.root}>
+          
+            <StyledTabs
+              value={value}
+              onChange={handleChange}
+              centered
+            >
+              <Tab label={props.viewAll} className={classes.navTitle}/>
+              <Tab label={props.manual} className={classes.navTitle}/>
+              <Tab label= {props.twitter} className={classes.navTitle}/>
+              <Tab label= {props.instagram} className={classes.navTitle}/>
+
+            </StyledTabs>
+          </Paper>
+        </nav>
+      </header>
     );
   }

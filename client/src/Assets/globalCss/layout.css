@@ -48,7 +48,6 @@
    max-width: 1280px;
    margin-right: auto;
    margin-left: auto;
-   margin-top: calc(100vh - 576px);
  }
   .MuiCard-root {
     margin-bottom: 30px;
