@@ -19,7 +19,7 @@
   const renderLoader = () => <Loading/>;
 
   
-  const  App = () => (
+  const App = () => (
     <>
       <Suspense fallback={renderLoader()}>
         <SocialWall/>
@@ -29,3 +29,4 @@
   )
 
   export default App;
+ 

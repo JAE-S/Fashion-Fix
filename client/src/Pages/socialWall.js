@@ -5,9 +5,6 @@
 // =========================================================   
    import Moment from 'react-moment';
    import Masonry from 'react-masonry-css'
-   import Linkify from 'linkifyjs/react';
-   import hashtag from 'linkifyjs/plugins/hashtag';
-   import * as linkify from 'linkifyjs';
 // Material UI Components
 // =========================================================   
    import Fab from '@material-ui/core/Fab';
@@ -27,7 +24,12 @@
 // Import API 
 // =========================================================
     import API from "../utils/API"
-import mention from 'linkifyjs/lib/linkify/plugins/mention';
+// Linkify Imports
+// =========================================================
+    import Linkify from 'linkifyjs/react';
+    import hashtag from 'linkifyjs/plugins/hashtag';
+    import * as linkify from 'linkifyjs';
+    import mention from 'linkifyjs/lib/linkify/plugins/mention';
     hashtag(linkify);
     mention(linkify);
 // Social Wall
