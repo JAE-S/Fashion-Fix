@@ -30,7 +30,7 @@
       backgroundColor: "transparent",
       "& > div": {
         width: "100%",
-        backgroundColor: "#DC3166",
+        backgroundColor: "#C02C5D",
       }
     }
   }))(props => <Tabs {...props} TabIndicatorProps={{ children: <div /> }} />);

@@ -78,7 +78,7 @@
   }
 
   .MuiFab-label, .MuiFab-root {
-    color: #DC3166; 
+    color: #C02C5D; 
     /* background-color: #fff!important; */
     box-shadow: none!important;
   }
@@ -88,11 +88,11 @@
   }
 
   .MuiFab-root:hover {
-    background-color: #DC3166!important; 
+    background-color: #C02C5D!important; 
     filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, .3));
     color: #fff!important;
   }
   .MuiFab-label:hover {
-    /* background-color: #DC3166!important;  */
+    /* background-color: #C02C5D!important;  */
     color: #fff!important;
   }

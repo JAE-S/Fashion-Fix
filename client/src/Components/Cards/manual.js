@@ -32,7 +32,7 @@
       paddingTop: '56.25%', // 16:9
     },
     avatar: {
-      backgroundColor: red[500],
+      backgroundColor: "#D03A2E",
       borderRadius: 8, 
     },
   }));
