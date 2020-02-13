@@ -27,11 +27,16 @@
 > <b>Development Tools:</b>
   * <b>Framework:</b> Material UI
   * React
+  * Axios
+  * linkifyjs
+  * React-responsive-carousel
+  * react-masonry-css
+  * react-swipeable-views
+  * react-moment
   * Express
   * Path 
   * Node 
   * if-env
-  * Moment
   * Concurrently
   * Git
   * Heroku (Heroku build)
