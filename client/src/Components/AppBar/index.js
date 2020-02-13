@@ -1,6 +1,6 @@
 // Reacts Imports
 // =========================================================   
-  import React, {useEffect, useState } from 'react';
+  import React, { useEffect } from 'react';
 // Material UI Components
 // =========================================================   
   import { makeStyles, withStyles } from '@material-ui/core/styles';

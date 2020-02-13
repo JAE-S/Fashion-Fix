@@ -50,7 +50,7 @@
    margin-left: auto;
  }
   .MuiCard-root {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
   .post-item, .post-content {
     border-radius: 4px;
@@ -69,11 +69,11 @@
     display: -ms-flexbox; /* Not needed if autoprefixing */
     display: flex;
     justify-items: center; 
-    margin-left: -30px; /* gutter size offset */
+    margin-left: -15px; /* gutter size offset */
     width: auto;
   }
   .my-masonry-grid_column {
-    padding-left: 30px; /* gutter size */
+    padding-left: 15px; /* gutter size */
     background-clip: padding-box;
   }
 
