@@ -1,4 +1,6 @@
-# Welcome to Fashion Fix!
+
+ <img src="/client/src/Assets/images/image_1.gif" align="center"
+     alt="Bullring Birmingham Fashion Fix" width="100%" height="auto">
 
 
 ---
@@ -11,8 +13,6 @@
 
 ---
 
-
----
 ## Technologies
 > <b>Design Tools:</b>
   * Adobe Illustrator
@@ -34,10 +34,25 @@
 ## Features And Functionality
 
 
-  * <b></b>
+  * <b>Mobile Responsive</b>
+    <img src="client/src/Assets/images/Readme_files/mobile_images.gif" align="center"
+       alt="Mobile Mock-Up Images" width="100%" height="auto">
  
-    * <b></b>
+  * <b>Filter Post Types</b>
+     <img src="client/src/Assets/images/Readme_files/filter_post_types.gif" align="center"
+        alt="Filter Post Types" width="100%" height="auto">
+        
+  * <b>Open Links in a New Window</b>
+     <img src="client/src/Assets/images/Readme_files/open_in_new_window.gif" align="center"
+        alt="Open Links in a New Window" width="100%" height="auto">
 
+  * <b>Load More Posts</b>
+     <img src="client/src/Assets/images/Readme_files/loadmore.gif" align="center"
+        alt="Open Load more" width="100%" height="auto">
+        
+  * <b>Loa=ding Site</b>
+     <img src="client/src/Assets/images/Readme_files/loading.gif" align="center"
+        alt="Loading Site" width="100%" height="auto">
 ---
 
 ## File Architecture
