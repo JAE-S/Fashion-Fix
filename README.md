@@ -9,8 +9,8 @@
   * [Summary](#Summary)
   * [Technologies](#technologies)
   * [Features And Functionality](#features-and-functionality)
-  * [Challenges](#Challanges)
-  * [Future Development](#Future-Development)
+  * [Challenges](#challenges)
+  * [Future Development](#future-development)
   * [File Architecture](#file-architecture)
   * [Click here to visit the site!](https://bullring-fashion-fix.herokuapp.com/)
 ---
@@ -73,7 +73,9 @@
 
 ## Future Development 
 
- 1. <b>W3 MobileOk Checker:</b> Improve/investigate solutions for the identified alerts below:  
+ 1. <b>W3 MobileOk Checker:</b> Improve/investigate solutions for the identified alerts below: 
+     <img src="client/src/Assets/images/Readme_files/W3C_mobile_checking.png" align="center"
+        alt="W3 MobileOk Checker" width="80%" height="auto">
  
  2. <b>Tab Configuration:</b> Right now the navbar to filter post types does not fully meet accessibility guidelines. The component can be accessed by tab navigation however the tabs need to be reconfigured to perform an action (select/display the desired post) on a key press. 
  
