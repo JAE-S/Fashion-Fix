@@ -19,6 +19,7 @@
           // infiniteLoop 
           showThumbs={false} 
           showStatus={false}
+          swipeable={true}
       > 
         <div>
           <img alt="Style Birmingham" src={Image_1} />
