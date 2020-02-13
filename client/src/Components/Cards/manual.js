@@ -25,7 +25,7 @@
 // =========================================================   
   const useStyles = makeStyles(theme => ({
     root: {
-      maxWidth: 314,
+      // maxWidth: 314,
     },
     media: {
       height: 0,

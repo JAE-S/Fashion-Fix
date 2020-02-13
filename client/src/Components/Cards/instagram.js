@@ -35,7 +35,10 @@
     },
     image: {
       borderRadius: "4px",
-      marginBottom: "10px"
+      marginBottom: "10px",
+      display: "flex", 
+      margin: "0 auto", 
+
     }
   }));
 
