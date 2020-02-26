@@ -16,7 +16,7 @@
 ---
 
 ## Summary 
- > This is a promotional application for Bullring Birmingham's Annual Autumn Fashion Fix Event. Usuers are able to view the "social wall" to discover latests trends and releven social media posts from Twitter and Instagram. 
+ > This is a promotional application for Bullring Birmingham's Annual Autumn Fashion Fix Event. Users are able to view the "social wall" to discover latests trends and relevent social media posts from Twitter and Instagram. 
 ---
 
 ## Technologies
